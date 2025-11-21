@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | AI Talking App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}
+    body {
+      background: radial-gradient(circle at top right, #4b0082, #0b001a);
+      color: #fff; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+    }
+
+    header {
+      width: 100%; text-align: center;
+      padding: 30px 0;
+      position: absolute; top: 0;
+    }
+
+    header .logo {font-size: 1.8rem; font-weight: 700; color: #c77dff;}
+
+    .container {
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      padding: 40px 50px;
+      width: 380px;
+      box-shadow: 0 0 25px rgba(199,125,255,0.3);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {margin-bottom: 10px;}
+    p.subtitle {color: #ccc; font-size: 0.95rem; margin-bottom: 25px;}
+
+    input {
+      width: 100%; padding: 12px 15px;
+      margin: 10px 0;
+      border: none; border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+      color: #fff; font-size: 1rem;
+      outline: none;
+    }
+
+    input::placeholder {color: #bbb;}
+
+    button {
+      width: 100%;
+      padding: 12px; border: none;
+      border-radius: 25px;
+      background: #c77dff;
+      color: #fff; font-weight: 600;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(199,125,255,0.4);
+    }
+
+    button:hover {background: #9c4eff; box-shadow: 0 0 25px rgba(199,125,255,0.7);}
+
+    .signup-link {margin-top: 15px; color: #ccc; font-size: 0.9rem;}
+    .signup-link a {color: #c77dff; text-decoration: none;}
+    .signup-link a:hover {text-decoration: underline;}
+
+    @keyframes fadeIn {from{opacity:0; transform:translateY(30px);}to{opacity:1; transform:translateY(0);}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🧠 AI Talking App</div>
+  </header>
+
+  <div class="container">
+    <h2>👋 Welcome Back</h2>
+    <p class="subtitle">Login to your account to access your AI avatar</p>
+
+    <form method="POST" action="/login">
+      <input type="email" name="email" placeholder="Enter Email" required>
+      <input type="password" name="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="signup-link">Don't have an account? <a href="/signup">Sign up here</a></p>
+  </div>
+</body>
+</html>

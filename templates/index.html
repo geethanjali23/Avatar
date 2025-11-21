@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Talking App | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      color: #fff;
+      background: #0b001a;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .gradient-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle at top right, #4b0082, #0b001a);
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #c77dff;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #c77dff;
+    }
+
+    .login-btn {
+      background: #c77dff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 80px;
+      text-align: left;
+      min-height: 85vh;
+    }
+
+    .hero-text {
+      flex: 1 1 400px;
+      padding-right: 50px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hero-text span {
+      color: #c77dff;
+    }
+
+    .hero-text p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn.primary {
+      background: #c77dff;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(199, 125, 255, 0.5);
+    }
+
+    .btn.primary:hover {
+      background: #9c4eff;
+      box-shadow: 0 0 25px rgba(199, 125, 255, 0.7);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #c77dff;
+      color: #c77dff;
+    }
+
+    .btn.secondary:hover {
+      background: #c77dff;
+      color: #fff;
+    }
+
+    .hero-image {
+      flex: 1 1 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 550px;
+      animation: float 2s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 20px rgba(199,125,255,0.3));
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 100px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 30px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(199,125,255,0.1);
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(199,125,255,0.4);
+    }
+
+    .feature-card h3 {
+      color: #c77dff;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        padding: 60px 30px;
+        text-align: center;
+      }
+      .hero-text {
+        padding-right: 0;
+      }
+      .hero-image img {
+        width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg"></div>
+
+  <header>
+    <div class="logo">🧠 AI Talking App</div>
+    <nav>
+      <a href="/login">Login</a>
+      <a href="/signup">Sign Up</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Create Your Own <span>AI Avatar</span></h1>
+      <p>Design your personal digital friend that listens, speaks, and interacts with you in real-time — powered by AI and voice synthesis.</p>
+      <div class="hero-buttons">
+        <a href="/signup" class="btn primary">Get Started</a>
+        <a href="/login" class="btn secondary">Login</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="{{ url_for('static', filename='avatar.png') }}" alt="AI Avatar Illustration">
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <h3>🎭 Custom Avatars</h3>
+      <p>Create unique AI avatars with personalized names, voices, and images that reflect your imagination.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💬 Real Conversations</h3>
+      <p>Chat naturally — your AI avatar responds intelligently and even speaks back using GTTS voice.</p>
+    </div>
+    <div class="feature-card">
+      <h3>☁️ Powered by OpenAI</h3>
+      <p>Enjoy smart, contextual, and meaningful interactions powered by the latest OpenAI conversational model.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 AI Talking App | Crafted with 💜 using Flask, OpenAI & GTTS</p>
+  </footer>
+</body>
+</html>

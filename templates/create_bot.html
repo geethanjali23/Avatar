@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Create AI Avatar</title>
+
+<!-- Google Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+
+<style>
+/* ------------------------------------------------ GLOBAL BACKGROUND ------------------------------------------------ */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at 10% 10%, #4a008f 0%, #2a0056 40%, #0b0016 100%);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------------------------------------------ MAIN PAGE CONTAINER ------------------------------------------------ */
+.container {
+    width: 100%;
+    max-width: 1120px;      /* CENTERED COLUMN */
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ------------------------------------------------ NAVBAR ------------------------------------------------ */
+.navbar {
+    width: 100%;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    border-radius: 0 0 20px 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 26px;
+    font-weight: 700;
+}
+.brand-icon { font-size: 32px; }
+
+/* ------------------------------------------------ NAV BUTTONS ------------------------------------------------ */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-btn {
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffe9ff;
+    text-decoration: none;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+
+    transition: 0.25s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255,255,255,0.20);
+    color: white;
+    box-shadow: 0 0 14px rgba(255,150,255,0.45);
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ff66ff, #b966ff);
+    border: none;
+    color: white !important;
+}
+.logout-btn:hover {
+    box-shadow: 0 0 18px rgba(255,120,255,0.8);
+    transform: translateY(-2px);
+}
+
+/* ------------------------------------------------ CENTER FORM FIX ------------------------------------------------ */
+.page-center {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;     /* horizontal center */
+    align-items: center;         /* vertical center */
+    padding: 40px 0;
+}
+
+.center-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;     /* horizontal center */
+    align-items: center;         /* vertical center */
+}
+
+/* ------------------------------------------------ FORM CARD ------------------------------------------------ */
+.form-card {
+    width: 100%;
+    max-width: 560px;
+
+    background: rgba(255,255,255,0.08);
+    padding: 44px;
+    border-radius: 22px;
+
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.55), 0 0 42px rgba(160,40,255,0.22);
+
+    text-align: center;
+    animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------------------------ TITLES ------------------------------------------------ */
+.title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 6px;
+
+    background: linear-gradient(90deg,#ffb0ff,#d38aff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    color: #e6d3ff;
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 28px;
+}
+
+/* ------------------------------------------------ FORM FIELDS ------------------------------------------------ */
+.field { text-align: left; margin-bottom: 16px; }
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #f2ccff;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.input-box,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    color: white;
+    font-size: 15px;
+}
+
+.input-box::placeholder { color: #e9cfff; opacity: 0.9; }
+
+.input-box:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(200,130,255,0.95);
+    box-shadow: 0 0 12px rgba(200,120,255,0.6);
+}
+
+/* ------------------------------------------------ RANDOM NAME BUTTON ------------------------------------------------ */
+.random-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(200,130,255,0.35);
+
+    background: transparent;
+    color: #dcb3ff;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.random-btn:hover {
+    background: rgba(200,130,255,0.15);
+    box-shadow: 0 0 14px rgba(200,120,255,0.35);
+}
+
+/* ------------------------------------------------ SUBMIT BUTTON ------------------------------------------------ */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(90deg, #ff7bff, #ff66cc);
+    font-weight: 800;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(255,130,255,0.25);
+    margin-top: 18px;
+
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- ------------------------------------------------ NAV BAR ------------------------------------------------ -->
+<div class="container">
+    <header class="navbar">
+        <div class="nav-left">
+            <span class="material-symbols-rounded brand-icon">psychology</span>
+            <span>AI Talking App</span>
+        </div>
+
+        <nav class="nav-right">
+            <a href="/" class="nav-btn">Home</a>
+            <a href="/dashboard" class="nav-btn">Dashboard</a>
+            <a href="/logout" class="nav-btn logout-btn">Logout</a>
+        </nav>
+    </header>
+</div>
+
+<!-- ------------------------------------------------ CENTERED FORM ------------------------------------------------ -->
+<div class="page-center">
+    <div class="center-wrap">
+        <div class="form-card">
+
+            <h1 class="title">🎨 Create Your AI Avatar</h1>
+            <p class="subtitle">Give your AI friend a name, choose a voice, and upload an image.</p>
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <!-- NAME -->
+                <div class="field">
+                    <div class="label">
+                        <span class="material-symbols-rounded">badge</span> Avatar Name
+                    </div>
+                    <input type="text" name="bot_name" class="input-box" placeholder="Enter Avatar Name" required>
+                    <button type="button" class="random-btn" onclick="generateName()">🎲 Random Name</button>
+                </div>
+
+                <!-- VOICE -->
+                <div class="field">
+                    <div class="label">
+                        <span class="material-symbols-rounded">record_voice_over</span> Voice Type
+                    </div>
+                    <select name="bot_voice" required>
+                        <option value="">Choose Voice</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="robot">Robot</option>
+                    </select>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="field">
+                    <div class="label">
+                        <span class="material-symbols-rounded">folder</span> Upload Avatar Image
+                    </div>
+                    <input type="file" name="bot_image" accept="image/*">
+                </div>
+
+                <!-- SUBMIT -->
+                <button class="submit-btn" type="submit">Create Avatar</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- ------------------------------------------------ RANDOM NAME SCRIPT ------------------------------------------------ -->
+<script>
+function generateName() {
+    const names = ["Neura","Astra","Vexa","Nova","Echo","Lyra","Nyx","Zenix","Cora","Synthia"];
+    document.querySelector("input[name='bot_name']").value =
+        names[Math.floor(Math.random() * names.length)];
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - Neura AI</title>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-family:Poppins, sans-serif;
+            background:radial-gradient(circle at top, #4a008f, #1a0033, #090015);
+            color:white;
+        }
+
+        .card {
+            width:380px;
+            background:rgba(255,255,255,0.1);
+            padding:30px;
+            border-radius:20px;
+            backdrop-filter:blur(15px);
+            box-shadow:0 0 25px rgba(200,120,255,0.4);
+        }
+
+        h2 {
+            text-align:center;
+            color:#d78bff;
+            margin-bottom:20px;
+        }
+
+        .input-box {
+            width:100%;
+            padding:12px;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,0.2);
+            background:rgba(255,255,255,0.15);
+            margin-bottom:15px;
+            color:white;
+            font-size:16px;
+        }
+
+        .btn {
+            width:100%;
+            padding:12px;
+            background:linear-gradient(135deg,#bb77ff,#ff66cc);
+            border:none;
+            border-radius:12px;
+            font-size:18px;
+            font-weight:600;
+            color:white;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        .btn:hover {
+            box-shadow:0 0 15px rgba(255,130,255,0.8);
+        }
+
+        .footer {
+            text-align:center;
+            margin-top:15px;
+            font-size:14px;
+        }
+
+        .footer a {
+            color:#d78bff;
+            text-decoration:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Create Your Neura Account</h2>
+
+    <form action="/signup" method="POST">
+
+        <input class="input-box" type="text" name="name" placeholder="Full Name" required>
+
+        <input class="input-box" type="email" name="email" placeholder="Email Address" required>
+
+        <input class="input-box" type="password" name="password" placeholder="Password" required>
+
+        <button class="btn">Sign Up</button>
+    </form>
+
+    <div class="footer">
+        Already have an account?  
+        <a href="/login">Login</a>
+    </div>
+</div>
+
+</body>
+</html>

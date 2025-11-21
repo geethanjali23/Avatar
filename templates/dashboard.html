@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Dashboard</title>
+
+<!-- Google Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+
+<style>
+/* ------------------------------------------------ GLOBAL BACKGROUND ------------------------------------------------ */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; }
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at 10% 10%, #4a008f 0%, #2a0056 40%, #0b0016 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ------------------------------------------------ MAIN PAGE CONTAINER ------------------------------------------------ */
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ------------------------------------------------ NAVBAR ------------------------------------------------ */
+.navbar {
+    width: 100%;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    border-radius: 0 0 20px 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.brand-icon { font-size: 32px; }
+
+/* NAV BUTTONS */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-btn {
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffe9ff;
+    text-decoration: none;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+
+    transition: 0.25s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255,255,255,0.20);
+    color: white;
+    box-shadow: 0 0 14px rgba(255,150,255,0.45);
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ff66ff, #b966ff);
+    border: none;
+    color: white !important;
+}
+.logout-btn:hover {
+    box-shadow: 0 0 18px rgba(255,120,255,0.8);
+    transform: translateY(-2px);
+}
+
+/* ------------------------------------------------ PAGE TITLE ------------------------------------------------ */
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 40px;
+    font-weight: 800;
+    background: linear-gradient(90deg,#a0ffd5,#a97cff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* ------------------------------------------------ AVATAR GRID ------------------------------------------------ */
+.avatar-grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+/* ------------------------------------------------ AVATAR CARD ------------------------------------------------ */
+.avatar-card {
+    padding: 28px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.avatar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 22px rgba(190, 80, 255, 0.6);
+}
+
+/* Avatar Image */
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 3px solid #c37aff;
+    box-shadow: 0 0 12px rgba(200, 80, 255, 0.6);
+
+    margin-bottom: 12px;
+}
+
+/* Avatar Name */
+.avatar-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* Voice */
+.avatar-voice {
+    opacity: 0.8;
+    margin-bottom: 16px;
+}
+
+/* Open Button */
+.open-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 16px;
+    font-size: 15px;
+    font-weight: 600;
+
+    background: linear-gradient(90deg,#ff7bff,#ff67d4);
+    border-radius: 12px;
+    color: white;
+
+    transition: 0.25s ease;
+}
+
+.open-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(255,100,255,0.7);
+}
+
+/* Create button on top */
+.top-create-btn {
+    display: inline-block;
+    margin: 40px auto;
+    padding: 12px 26px;
+
+    background: linear-gradient(90deg,#ff66cc,#cc33ff);
+    color: white;
+    border-radius: 14px;
+
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.top-create-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(255,120,255,0.7);
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="container">
+    <header class="navbar">
+        <div class="nav-left">
+            <span class="material-symbols-rounded brand-icon">psychology</span>
+            <span>AI Talking App</span>
+        </div>
+
+        <nav class="nav-right">
+            <a href="/" class="nav-btn">Home</a>
+            <a href="/dashboard" class="nav-btn">Dashboard</a>
+            <a href="/create_bot" class="nav-btn">Create New Avatar</a>
+            <a href="/logout" class="nav-btn logout-btn">Logout</a>
+        </nav>
+    </header>
+</div>
+
+<!-- PAGE TITLE -->
+<h1 class="page-title">Your AI Avatars</h1>
+
+<!-- CREATE BUTTON -->
+<div style="text-align:center;">
+    <a href="/create_bot" class="top-create-btn">+ Create New Avatar</a>
+</div>
+
+<!-- AVATAR GRID -->
+<div class="container">
+    <div class="avatar-grid">
+
+        {% for bot in bots %}
+        <div class="avatar-card" onclick="window.location='/talking_avatar?bot_id={{ bot.id }}'">
+            <img src="{{ bot.image_url if bot.image_url else '/static/default.png' }}" class="avatar-img">
+
+            <div class="avatar-name">{{ bot.name }}</div>
+            <div class="avatar-voice">Voice: {{ bot.voice }}</div>
+
+            <a class="open-btn" href="/talking_avatar?bot_id={{ bot.id }}">Open Avatar</a>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+</body>
+</html>

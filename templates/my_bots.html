@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Bots</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>My Bots</h1>
+
+    {% if bots|length == 0 %}
+        <p>No bots created yet.</p>
+    {% endif %}
+
+    <ul class="bot-list">
+        {% for bot in bots %}
+            <li class="bot-item">
+                <h3>{{ bot.name }}</h3>
+                <p>{{ bot.description }}</p>
+                <a href="/talking_avatar?bot_id={{ bot.id }}" class="btn">Open Bot</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
