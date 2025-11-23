@@ -58,8 +58,9 @@ A Google Gemini API Key.
 
 2. Clone the Repository
 
-git clone https://github.com/geethanjali23/Avatar.git
+git clone [https://github.com/geethanjali23/Avatar.git](https://github.com/geethanjali23/Avatar.git)
 cd Avatar
+
 
 3. Install Dependencies
 
@@ -159,16 +160,4 @@ Avatar/
 │   │   └── app.js         # Main frontend logic (Camera, Timer, AI)
 │   ├── img/               # Default assets
 │   ├── models/            # AI models (if hosted locally)
-│   └── uploads/           # User uploaded avatar images
-├── templates/
-│   ├── index.html         # Chat interface (Landing page logic)
-│   ├── dashboard.html     # User dashboard
-│   ├── create_bot.html    # Bot creation form
-│   ├── talking_avatar.html# Main immersive chat view
-│   ├── login.html         # Auth pages
-│   └── signup.html
-├── gemini_client.py       # Wrapper for Google Gemini API
-├── server.py              # Main Flask Backend
-├── requirements.txt       # Python dependencies
-├── .env                   # Environment variables
-└── README.md
+│   └── uploads/           # User
